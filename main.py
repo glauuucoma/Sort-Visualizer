@@ -17,6 +17,10 @@ class DrawInformation:
 		(192, 192, 192)
 	]
 	
+	#Font
+	FONT = pygame.font.SysFont('notoserifahom', 30)
+	LARGE_FONT = pygame.font.SysFont('notoserifahom', 40)
+	
     #Paddings
 	SIDE_PAD = 100
 	TOP_PAD = 150
@@ -41,6 +45,7 @@ class DrawInformation:
 
 def draw(draw_info):
 	draw_info.window.fill(draw_info.BACKGROUND_COLOR)
+	controls = draw_info.FONT.render("R - Reset | SPACE - Start Sorting | A - Ascending | D - Descending", 1, draw_info.BLACK)
 	draw_list(draw_info)
 	pygame.display.update()
 
@@ -105,3 +110,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+	
