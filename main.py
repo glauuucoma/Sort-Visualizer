@@ -101,7 +101,7 @@ def bubble_sort(draw_info, ascending=True):
 			num1 = lst[j] 
 			num2 = lst[j+1]
 
-			if num1 > num2 and ascending:
+			if (num1 > num2 and ascending) or (num1 < num2 and not ascending):
 				lst[j], lst[j+1] = lst[j+1], lst[j]
 				draw_list(draw_info, {j:draw_info.GREEN, j + 1: draw_info.RED}, True)
 				#draw_list()
@@ -143,7 +143,7 @@ def main():
 				run = False
 			if event.type != pygame.KEYDOWN:
 				continue
-			if event.key == pygame.K_r:
+			if event.key == pygame.K_r and not sorting:
 				lst = generate_starting_list(n, min_val, max_val)
 				draw_info.set_list(lst)
 				sorting == False
@@ -154,8 +154,6 @@ def main():
 				ascending = True
 			elif event.key == pygame.K_d and not sorting:
 				ascending = False
-			
-
 
 		
 	pygame.quit()
@@ -163,4 +161,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-	
